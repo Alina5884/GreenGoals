@@ -1,42 +1,111 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Общий стиль страницы */
+body {
+  background-image: url('./assets/background.png');
+  background-position: center; 
+  background-size: cover; 
+  background-repeat: no-repeat;
+  font-family: Helvetica, sans-serif;
+  color: black;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Заголовки */
+h1 {
   text-align: center;
+  font-size: 2em;
+  color: #97da7b;
+  -webkit-text-stroke: 2px black;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h2 {
+  text-align: center;
+  font-size: 1em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Контейнер для формы и списка задач */
+.todo-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+  background-color: #71aa52;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Форма добавления задачи */
+form {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: 400px;
 }
 
-.card {
-  padding: 2em;
+/* Поле ввода */
+input {
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 0.85em;
+  width: 100%;
+  height: 30px;
+  background-color:#97da7b;
 }
 
-.read-the-docs {
-  color: #888;
+/* Контейнер для кнопок */
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Список задач */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Элемент списка */
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #97da7b;
+  font-size: 0.85em;
+  width: 400px;
+  box-sizing: border-box;
+}
+
+/* Иконки для кнопок */
+.icon-button {
+  cursor: pointer;
+  width: 40px; 
+  height: 40px;
+  margin: 10px;
+  transition: transform 0.2s ease-in-out; 
+}
+
+.icon-button img {
+  width: 30px; 
+  height: 30px;
+  transition: transform 0.2s ease-in-out; 
+}
+
+.icon-button:hover {
+  transform: scale(1.13);
 }

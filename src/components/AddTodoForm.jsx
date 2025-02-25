@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import style from './AddTodoForm.module.css';
 import InputWithLabel from './InputWithLabel';
 import PropTypes from 'prop-types';
+import addIcon from '../assets/go-green.png';
 
 function AddTodoForm({ onAddTodo, todoTitle, handleTitleChange, isLoading }) {
     const handleAddTodo = async (event) =>  {
@@ -15,17 +16,16 @@ function AddTodoForm({ onAddTodo, todoTitle, handleTitleChange, isLoading }) {
 
     return (
         <div>
-            <h2>Add Todo</h2>
+            <h2>Add Sustainable Action:</h2>
             <form onSubmit={handleAddTodo}>
                 <InputWithLabel
                     id="todoTitle" 
                     todoTitle={todoTitle} 
                     handleTitleChange={handleTitleChange} 
                 >
-                    Title
                 </InputWithLabel>
-                <button type="submit" disabled={isLoading}>
-                    {isLoading ? 'Addidg...' : 'Add'}
+                <button type="submit" disabled={isLoading} className={style.AddButton}>
+                    <img src={addIcon} alt="Add Todo" className={style.AddIcon} />
                 </button>
             </form>
         </div>

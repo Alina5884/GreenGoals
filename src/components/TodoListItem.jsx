@@ -1,12 +1,17 @@
 import style from "./TodoListItem.module.css";
 import PropTypes from "prop-types";
+import trashIcon from '../assets/trash.png';
 
 const TodoListItem = ({ todo, onRemoveTodo }) => {
     return (
         <li className={style.ListItem}>
             {todo.title}
-            <button type="button" onClick={() => onRemoveTodo(todo.id)}>
-                Remove
+            <button 
+                type="button" 
+                onClick={() => onRemoveTodo(todo.id)} 
+                className={style.DeleteButton}
+            >
+                <img src={trashIcon} alt="Delete" className={style.TrashIcon} />
             </button>
         </li>
     );

@@ -1,7 +1,11 @@
+import './App.css';
 import { useState, useEffect, useCallback } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
 import TodoList from './components/TodoList';
 import AddTodoForm from './components/AddTodoForm';
+import azIcon from './assets/a-z.png';
+import zaIcon from './assets/z-a.png';
 
 const API_URL = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}`;
 const headers = {
@@ -18,14 +22,15 @@ function App() {
   const handleApiRequest = async (url, options) => {
     try {
       const response = await fetch(url, options);
+
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(`Error: ${errorData.message || response.status}`);
+        throw new Error(`Error: ${errorData.message || response.status}`)
       }
       return await response.json();
     } catch (error) {
       setError(error.message);
-      throw error;
+      throw error
     }
   };
 
@@ -41,14 +46,14 @@ function App() {
         id: todo.id,
         createdTime: todo.fields.createdTime || new Date().toISOString()
       }));
-      setTodoList(todos);
+      setTodoList(todos)
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error)
     }
   }, [sortOrder]);
 
   useEffect(() => {
-    fetchData();
+    fetchData()
   }, [sortOrder]);
 
   const addTodo = async () => {
@@ -65,9 +70,9 @@ function App() {
         body: JSON.stringify(newTodo)
       });
       setTodoTitle('');
-      fetchData();
+      fetchData()
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error)
     }
   };
 
@@ -79,46 +84,52 @@ function App() {
       });
       fetchData();
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error)
     }
   };
 
   const handleTitleChange = (event) => {
-    setTodoTitle(event.target.value);
+    setTodoTitle(event.target.value)
   };
 
   const toggleSortOrder = () => {
-    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
   };
 
   return (
     <Routes>
+      <Route path="/" element={<HomePage />} />
       <Route
-        path="/"
+        path="/todos"
         element={
           <>
-            <h1>Todo List</h1>
-            <button onClick={toggleSortOrder}>
-              Switch to {sortOrder === 'asc' ? 'Descending' : 'Ascending'} Order
-            </button>
+            <h1>Eco Actions</h1>
             {error ? (
               <p>Error: {error}</p>
             ) : (
-              <>
+              <div className="todo-container">
                 <AddTodoForm
                   onAddTodo={addTodo}
                   todoTitle={todoTitle}
                   handleTitleChange={handleTitleChange}
+                />  
+                <div className="sort-container">
+                <img
+                  src={sortOrder === 'asc' ? azIcon : zaIcon}
+                  alt="Sort Order"
+                  onClick={toggleSortOrder}
+                  className="icon-button"
                 />
-                <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-              </>
-            )}
-          </>
-        }
-      />
-      <Route path="/new" element={<h1>New Todo List</h1>} />
-    </Routes>
-  );
+              </div>
+              
+              <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+            </div>
+          )}
+        </>
+      }
+    />
+  </Routes>
+);
 }
 
 export default App;
