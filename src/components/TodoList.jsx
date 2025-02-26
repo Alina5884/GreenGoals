@@ -1,7 +1,7 @@
 import TodoListItem from './TodoListItem';
 import PropTypes from 'prop-types';
 
-const TodoList = ({ todoList, onRemoveTodo, onEditTodo }) => {
+const TodoList = ({ todoList, onRemoveTodo, onEditTodo, onToggleComplete }) => {
     return (
         <div>
             <ul>
@@ -11,6 +11,7 @@ const TodoList = ({ todoList, onRemoveTodo, onEditTodo }) => {
                         todo={todo}
                         onRemoveTodo={onRemoveTodo} 
                         onEditTodo={onEditTodo}
+                        onToggleComplete={onToggleComplete}
                         />
                 ))}
             </ul>
@@ -24,7 +25,8 @@ TodoList.propTypes = {
         title: PropTypes.string.isRequired
     })).isRequired,
     onRemoveTodo: PropTypes.func.isRequired,
-    onEditTodo: PropTypes.func.isRequired 
+    onEditTodo: PropTypes.func.isRequired,
+    onToggleComplete: PropTypes.func.isRequired
 };
 
 export default TodoList;

@@ -1,13 +1,39 @@
 .ListItem {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.CheckboxAndText {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.CheckboxIcon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.EditableText {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  width: 100%;
 }
 
 .Actions {
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: flex-end;
 }
@@ -23,38 +49,38 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
 }
-  
+
 .TrashIcon, .EditIcon {
   width: 30px;
   height: 30px;
-  transition: transform 0.2s ease-in-out; 
+  transition: transform 0.2s ease-in-out;
 }
 
 .YesOrNo {
-  display: flex; 
+  display: flex;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 4px;
+  margin-left: 10px;
 }
 
 .YesIcon, .NoIcon {
   width: 25px;
   height: 25px;
-  transition: transform 0.2s ease-in-out; 
+  transition: transform 0.2s ease-in-out;
 }
-  
+
 .TrashIcon:hover, .EditIcon:hover, .YesIcon:hover, .NoIcon:hover {
   transform: scale(1.13);
 }
 
 @media (max-width: 768px) {
   .DeleteButton, .EditButton {
-    width: 25px;
-    height: 25px;
+      width: 25px;
+      height: 25px;
   }
   .YesIcon, .NoIcon {
-    width: 15px;
-    height: 15px;
+      width: 15px;
+      height: 15px;
   }
 }

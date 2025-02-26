@@ -55,6 +55,7 @@ function App() {
           title: todo.fields.title,
           id: todo.id,
           createdTime: todo.fields.createdTime || new Date().toISOString(),
+          completed: todo.fields.completed || false
         }));
 
         setTodoList(todos);
@@ -129,6 +130,29 @@ function App() {
     }
   };
 
+  const onToggleComplete = async (id, currentStatus) => {
+    const updatedTodoData = {
+      fields: { completed: !currentStatus },
+    };
+  
+    try {
+      const response = await handleApiRequest(`${API_URL}/${id}`, {
+        method: "PATCH",
+        headers,
+        body: JSON.stringify(updatedTodoData),
+      });
+  
+      setTodoList((prevTodos) =>
+        prevTodos.map((todo) =>
+          todo.id === id ? { ...todo, completed: response.fields.completed } : todo
+        )
+      );
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+  
+
   const toggleSortOrder = () => {
     setSortOrder((prevSortOrder) => (prevSortOrder === "asc" ? "desc" : "asc"));
   };
@@ -157,7 +181,12 @@ function App() {
                     className="icon-button"
                   />
                 </div>
-                <TodoList todoList={todoList} onRemoveTodo={removeTodo} onEditTodo={editTodo}/>
+                <TodoList 
+                  todoList={todoList} 
+                  onRemoveTodo={removeTodo} 
+                  onEditTodo={editTodo}
+                  onToggleComplete={onToggleComplete}
+                  />
                 <Link to="/">
                   <img src={homeIcon} alt="Home" className="home-icon" />
                 </Link>
