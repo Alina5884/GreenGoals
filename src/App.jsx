@@ -15,7 +15,7 @@ const headers = {
 
 function App() {
   const [todoList, setTodoList] = useState([]);
-  const [todoTitle, setTodoTitle] = useState("");
+  const [editingTodo, setEditingTodo] = useState(null); 
   const [sortOrder, setSortOrder] = useState("asc");
   const [isLoading, setIsLoading] = useState(true);
   const [tableName] = useState(import.meta.env.VITE_TABLE_NAME);
@@ -70,6 +70,28 @@ function App() {
     fetchData();
   }, [sortOrder, tableName]);
 
+  const editTodo = async (updatedTodo) => {
+    const updatedTodoData = {
+      fields: { title: updatedTodo.title },
+    };
+  
+    try {
+      const response = await handleApiRequest(`${API_URL}/${updatedTodo.id}`, {
+        method: "PUT",
+        headers,
+        body: JSON.stringify(updatedTodoData),
+      });
+  
+      setTodoList((prevTodos) =>
+        prevTodos.map((todo) =>
+          todo.id === updatedTodo.id ? { ...todo, title: response.fields.title } : todo
+        )
+      );
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   const addTodo = async (todoTitle) => {
     if (!todoTitle.trim()) return;
 
@@ -91,7 +113,6 @@ function App() {
       };
 
       setTodoList((prevTodos) => [...prevTodos, addedTodo]);
-      setTodoTitle("");
     } catch (error) {
       console.error("Error:", error);
     }
@@ -107,10 +128,6 @@ function App() {
     } catch (error) {
       console.error("Error:", error);
     }
-  };
-
-  const handleTitleChange = (event) => {
-    setTodoTitle(event.target.value);
   };
 
   const toggleSortOrder = () => {
@@ -141,7 +158,7 @@ function App() {
                     className="icon-button"
                   />
                 </div>
-                <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+                <TodoList todoList={todoList} onRemoveTodo={removeTodo} onEditTodo={editTodo}/>
                 <Link to="/">
                   <img src={homeIcon} alt="Home" className="home-icon" />
                 </Link>

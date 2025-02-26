@@ -7,15 +7,15 @@ function AddTodoForm({ onAddTodo }) {
     const [todoTitle, setTodoTitle] = useState("");
 
     const handleTitleChange = (event) => {
-        setTodoTitle(event.target.value);
+        setTodoTitle(event.target.value)
     };
 
     const handleAddTodo = async (event) =>  {
         event.preventDefault();
 
         if (!todoTitle.trim()) return;
-        
-        onAddTodo(todoTitle);
+
+        onAddTodo(todoTitle)
         setTodoTitle("")
     };
 
@@ -38,7 +38,7 @@ function AddTodoForm({ onAddTodo }) {
 };
 
 AddTodoForm.propTypes = {
-    onAddTodo: PropTypes.func.isRequired
+    onAddTodo: PropTypes.func.isRequired,
 };
 
 export default AddTodoForm;

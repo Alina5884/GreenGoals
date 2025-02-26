@@ -6,26 +6,55 @@
     border-bottom: 1px solid #ddd;
 }
 
-.DeleteButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
+.Actions {
+  display: flex; 
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.DeleteButton, .EditButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.SaveButton, .CancelButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
   
-  .TrashIcon {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.2s ease-in-out; 
-  }
+.TrashIcon, .EditIcon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s ease-in-out; 
+}
+
+.YesOrNo {
+  display: flex; 
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.YesIcon, .NoIcon {
+  width: 25px;
+  height: 25px;
+  transition: transform 0.2s ease-in-out; 
+}
   
-  .TrashIcon:hover {
-    transform: scale(1.13);
-  }
+.TrashIcon:hover, .EditIcon:hover, .YesIcon:hover, .NoIcon:hover {
+  transform: scale(1.13);
+}
 
 @media (max-width: 768px) {
-  .TrashIcon {
+  .DeleteButton, .EditButton {
     width: 25px;
     height: 25px;
+  }
+  .YesIcon, .NoIcon {
+    width: 15px;
+    height: 15px;
   }
 }
