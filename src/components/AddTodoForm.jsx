@@ -16,7 +16,7 @@ function AddTodoForm({ onAddTodo, todoTitle, handleTitleChange, isLoading }) {
 
     return (
         <div>
-            <h2>Add Sustainable Action:</h2>
+            <h2>Add Eco Task:</h2>
             <form onSubmit={handleAddTodo}>
                 <InputWithLabel
                     id="todoTitle" 

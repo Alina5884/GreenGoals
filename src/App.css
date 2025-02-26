@@ -1,4 +1,4 @@
-/* Общий стиль страницы */
+/* Main */
 body {
   background-image: url('./assets/background.png');
   background-position: center; 
@@ -14,11 +14,12 @@ body {
   height: 100vh;
 }
 
-/* Заголовки */
+/* Headers */
 h1 {
   text-align: center;
-  font-size: 2em;
-  color: #97da7b;
+  font-size: 2.5em;
+  margin: 5px;
+  color: #fff7f3;
   -webkit-text-stroke: 2px black;
 }
 
@@ -27,7 +28,7 @@ h2 {
   font-size: 1em;
 }
 
-/* Контейнер для формы и списка задач */
+/* Form and list container */
 .todo-container {
   width: 100%;
   max-width: 480px;
@@ -42,7 +43,7 @@ h2 {
   align-items: center;
 }
 
-/* Форма добавления задачи */
+/* Add form */
 form {
   display: flex;
   flex-direction: row;
@@ -50,7 +51,7 @@ form {
   width: 400px;
 }
 
-/* Поле ввода */
+/* Input field */
 input {
   padding: 8px;
   border: 2px solid black;
@@ -61,7 +62,7 @@ input {
   background-color:#97da7b;
 }
 
-/* Контейнер для кнопок */
+/* Buttons container */
 .button-container {
   display: flex;
   justify-content: flex-end;
@@ -69,29 +70,31 @@ input {
   margin-bottom: 10px;
 }
 
-/* Список задач */
+/* List */
 ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  width: 100%;
+  width: 99%;
 }
 
-/* Элемент списка */
+/* List elements*/
 li {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px;
-  border: 2px solid black;
+  margin: 8px 5px;
+  outline: 2px solid black;
   border-radius: 5px;
   background-color: #97da7b;
   font-size: 0.85em;
+  font-weight: bold;
   width: 400px;
   box-sizing: border-box;
 }
 
-/* Иконки для кнопок */
+/* Sort-button */
 .icon-button {
   cursor: pointer;
   width: 40px; 

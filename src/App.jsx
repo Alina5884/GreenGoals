@@ -102,34 +102,33 @@ function App() {
       <Route
         path="/todos"
         element={
-          <>
-            <h1>Eco Actions</h1>
+          <div className="todo-container">
+            <h1>Green Impact</h1>
             {error ? (
               <p>Error: {error}</p>
             ) : (
-              <div className="todo-container">
+              <>
                 <AddTodoForm
                   onAddTodo={addTodo}
                   todoTitle={todoTitle}
                   handleTitleChange={handleTitleChange}
                 />  
                 <div className="sort-container">
-                <img
-                  src={sortOrder === 'asc' ? azIcon : zaIcon}
-                  alt="Sort Order"
-                  onClick={toggleSortOrder}
-                  className="icon-button"
-                />
-              </div>
-              
-              <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-            </div>
-          )}
-        </>
-      }
-    />
-  </Routes>
-);
-}
+                  <img
+                    src={sortOrder === 'asc' ? azIcon : zaIcon}
+                    alt="Sort Order"
+                    onClick={toggleSortOrder}
+                    className="icon-button"
+                  />
+                </div>
+                <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+              </>
+            )}
+          </div>
+        }
+      />
+    </Routes>
+  )
+};
 
 export default App;
