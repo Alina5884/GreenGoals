@@ -22,3 +22,10 @@
   .TrashIcon:hover {
     transform: scale(1.13);
   }
+
+@media (max-width: 768px) {
+  .TrashIcon {
+    width: 25px;
+    height: 25px;
+  }
+}

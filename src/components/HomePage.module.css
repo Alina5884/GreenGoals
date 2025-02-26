@@ -1,11 +1,14 @@
 /* Main Container */
 .homeContainer {
+  max-height: 90vh;
   text-align: center;
-  padding: 20px;
-  background-color: #71aa52;
+  padding: 30px;
+  background-color: #72b85c;
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  display: block;
 }
 
 /* Header */
@@ -26,13 +29,34 @@
 .button {
   padding: 10px 20px;
   font-size: 1.1rem;
-  background-color: #97da7b; 
+  font-weight: bold;
+  background-color: #8fe673; 
   border: 2px solid black;
   cursor: pointer;
   border-radius: 5px;
+  box-shadow: inset 5px 0 #72b85c;
   transition: transform 0.2s ease-in-out; 
 }
 
 .button:hover {
   transform: scale(1.13);
+}
+
+@media (max-width: 768px) {
+  .homeContainer {
+    width: 50%;
+  }
+
+  .heading {
+    font-size: 2em;
+    margin: 0;
+  }
+
+  .paragraph {
+    font-size: 0.8em;
+  }
+
+  .button {
+    font-size: 0.7rem;
+  }
 }

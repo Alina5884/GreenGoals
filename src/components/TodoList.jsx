@@ -22,7 +22,7 @@ TodoList.propTypes = {
         id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
         title: PropTypes.string.isRequired
     })).isRequired,
-    onRemoveTodo: PropTypes.func.isRequired
+    onRemoveTodo: PropTypes.func.isRequired,
 };
 
 export default TodoList;

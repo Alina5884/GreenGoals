@@ -1,17 +1,22 @@
 import style from './AddTodoForm.module.css';
 import InputWithLabel from './InputWithLabel';
 import PropTypes from 'prop-types';
-import addIcon from '../assets/go-green.png';
+import { useState } from 'react';
 
-function AddTodoForm({ onAddTodo, todoTitle, handleTitleChange, isLoading }) {
+function AddTodoForm({ onAddTodo }) {
+    const [todoTitle, setTodoTitle] = useState("");
+
+    const handleTitleChange = (event) => {
+        setTodoTitle(event.target.value);
+    };
+
     const handleAddTodo = async (event) =>  {
         event.preventDefault();
 
         if (!todoTitle.trim()) return;
         
-        await onAddTodo(todoTitle);
-
-        handleTitleChange({ target: { value: '' } });
+        onAddTodo(todoTitle);
+        setTodoTitle("")
     };
 
     return (
@@ -24,8 +29,8 @@ function AddTodoForm({ onAddTodo, todoTitle, handleTitleChange, isLoading }) {
                     handleTitleChange={handleTitleChange} 
                 >
                 </InputWithLabel>
-                <button type="submit" disabled={isLoading} className={style.AddButton}>
-                    <img src={addIcon} alt="Add Todo" className={style.AddIcon} />
+                <button type="submit" className={style.AddButton}>
+                    GO GREEN
                 </button>
             </form>
         </div>
@@ -33,10 +38,7 @@ function AddTodoForm({ onAddTodo, todoTitle, handleTitleChange, isLoading }) {
 };
 
 AddTodoForm.propTypes = {
-    onAddTodo: PropTypes.func.isRequired,
-    todoTitle: PropTypes.string.isRequired,
-    handleTitleChange: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired
+    onAddTodo: PropTypes.func.isRequired
 };
 
 export default AddTodoForm;

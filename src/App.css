@@ -6,7 +6,7 @@ body {
   background-repeat: no-repeat;
   font-family: Helvetica, sans-serif;
   color: black;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@ body {
 h1 {
   text-align: center;
   font-size: 2.5em;
-  margin: 5px;
+  margin-top: 8px;
   color: #fff7f3;
   -webkit-text-stroke: 2px black;
 }
@@ -32,8 +32,9 @@ h2 {
 .todo-container {
   width: 100%;
   max-width: 480px;
+  max-height: 90hv;
   padding: 20px;
-  background-color: #71aa52;
+  background-color: #72b85c;
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
@@ -47,19 +48,27 @@ h2 {
 form {
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 0;
   width: 400px;
 }
 
 /* Input field */
 input {
   padding: 8px;
+  margin-right: 8px;
   border: 2px solid black;
   border-radius: 5px;
   font-size: 0.85em;
+  font-weight: bold;
   width: 100%;
   height: 30px;
-  background-color:#97da7b;
+  background-color:#8fe673;
+  box-shadow: inset 4px 0 #72b85c;
+}
+
+input::placeholder {
+  font-weight: bold;
+  color: #599c45; 
 }
 
 /* Buttons container */
@@ -87,28 +96,105 @@ li {
   margin: 8px 5px;
   outline: 2px solid black;
   border-radius: 5px;
-  background-color: #97da7b;
+  background-color: #8fe673;
   font-size: 0.85em;
   font-weight: bold;
   width: 400px;
   box-sizing: border-box;
+  box-shadow: inset 4px 0 #72b85c;
 }
 
 /* Sort-button */
 .icon-button {
   cursor: pointer;
-  width: 40px; 
-  height: 40px;
+  width: 45px; 
+  height: 45px;
   margin: 10px;
   transition: transform 0.2s ease-in-out; 
 }
 
 .icon-button img {
-  width: 30px; 
-  height: 30px;
   transition: transform 0.2s ease-in-out; 
 }
 
 .icon-button:hover {
   transform: scale(1.13);
 }
+
+.home-icon {
+  width: 45px; 
+  height: 45px;
+  transition: transform 0.2s ease-in-out; 
+}
+
+.home-icon:hover {
+  transform: scale(1.13);
+}
+
+.loading-placeholder {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  color: #888;
+  font-size: 16px;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 0.8em;
+  }
+
+  .todo-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  form {
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2px
+  }
+
+  input {
+    width: 100%;
+    height: 20px;
+    font-size: 0.7em;
+    margin: 0;
+    
+  }
+
+  .button-container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .icon-button, .home-icon {
+    width: 35px;
+    height: 35px;
+    margin: 4px 0 0;
+  }
+
+  li {
+    width: 100%;
+    font-size: 0.7em;
+    height: 40px;
+  }
+}
+
