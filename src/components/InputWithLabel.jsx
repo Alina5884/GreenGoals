@@ -21,7 +21,7 @@ const InputWithLabel = ({ todoTitle, handleTitleChange, id, children }) => {
                 onChange={handleTitleChange} 
                 required
                 ref={inputRef}
-                placeholder="What’s your green goal?"
+                placeholder="Make an impact..."
             />
         </>
     )

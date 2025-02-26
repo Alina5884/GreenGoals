@@ -21,7 +21,7 @@ function AddTodoForm({ onAddTodo }) {
 
     return (
         <div>
-            <h2>Add Eco Task:</h2>
+            <h2>Add Task:</h2>
             <form onSubmit={handleAddTodo}>
                 <InputWithLabel
                     id="todoTitle" 

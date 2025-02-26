@@ -15,7 +15,6 @@ const headers = {
 
 function App() {
   const [todoList, setTodoList] = useState([]);
-  const [editingTodo, setEditingTodo] = useState(null); 
   const [sortOrder, setSortOrder] = useState("asc");
   const [isLoading, setIsLoading] = useState(true);
   const [tableName] = useState(import.meta.env.VITE_TABLE_NAME);
