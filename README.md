@@ -5,7 +5,6 @@
 ## 🚀 Features  
 - Add, edit, and remove tasks  
 - Mark tasks as completed  
-- Get random eco-friendly tips  
 - Track progress with sustainability challenges  
 - Responsive and clean UI  
 
