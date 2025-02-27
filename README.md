@@ -1,4 +1,4 @@
-# GreenGoals 🌱  
+# GreenTasks 🌱  
 
 **GreenGoals** is an eco-friendly Todo List application built with React. It helps users track tasks while promoting sustainable habits with eco tips and challenges.  
 
