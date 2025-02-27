@@ -166,9 +166,9 @@ function App() {
           <div className="todo-container">
             <h1>{tableName}</h1>
             {error && <p className="error-message">Error: {error}</p>}
-            {/* {isLoading ? (
+            {isLoading ? (
               <p>Loading...</p>
-            ) : ( */}
+            ) : (
               <>
                 <AddTodoForm
                   onAddTodo={addTodo}
@@ -191,6 +191,7 @@ function App() {
                   <img src={homeIcon} alt="Home" className="home-icon" />
                 </Link>
               </>
+            )}
           </div>
         }
       />

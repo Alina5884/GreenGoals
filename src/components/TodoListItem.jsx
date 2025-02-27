@@ -24,8 +24,6 @@ const TodoListItem = ({ todo, onRemoveTodo, onEditTodo, onToggleComplete }) => {
   const handleTextChange = (e) => {
     setNewTitle(e.target.value);
   };
-
-
   
   return (
     <li className={style.ListItem}>
@@ -44,7 +42,9 @@ const TodoListItem = ({ todo, onRemoveTodo, onEditTodo, onToggleComplete }) => {
             className={style.EditableText}
           />
         ) : (
-          <span>{todo.title}</span> 
+          <span className={todo.completed ? style.Completed : ""}>
+            {todo.title}
+          </span> 
         )}
       </div>
       <div className={style.Actions}>
@@ -60,7 +60,10 @@ const TodoListItem = ({ todo, onRemoveTodo, onEditTodo, onToggleComplete }) => {
               </button>
               <button
                 type="button"
-                onClick={() => setIsEditing(false)}
+                onClick={() => {
+                  setNewTitle(todo.title)
+                  setIsEditing(false)
+                }}
                 className={style.CancelButton}
               >
                 <img src={noIcon} alt="No" className={style.NoIcon} />

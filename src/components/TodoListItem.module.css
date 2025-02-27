@@ -32,6 +32,11 @@
   width: 100%;
 }
 
+.Completed {
+  text-decoration: line-through;
+  color: #72b85c;
+}
+
 .Actions {
   display: flex;
   align-items: center;
